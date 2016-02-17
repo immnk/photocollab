@@ -1,3 +1,18 @@
-
+.content {
+  background: #ECF0F1 url("../../img/photography.png"); }
+  .content .content-wrapper {
+    padding-top: 15%; }
+    .content .content-wrapper .avatar {
+      background: rgba(255, 255, 255, 0) url("../../img/camera.png");
+      height: 150px;
+      width: 150px;
+      background-size: cover;
+      margin: 0 auto; }
+  .content .button.button-stable {
+    border-color: #b2b2b2;
+    background-color: #f8f8f8; }
+  .content .button.button-transparent {
+    background-color: rgba(255, 255, 255, 0);
+    color: #4a87ee; }
 
 /*# sourceMappingURL=login.css.map */

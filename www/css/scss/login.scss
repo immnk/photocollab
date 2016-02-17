@@ -1,0 +1,26 @@
+$avatar-width: 150px;
+$avatar-height: 150px;
+$stable: #4a87ee;
+.content {
+	background: #ECF0F1 url('../../img/photography.png');
+    .content-wrapper {
+    	// margin-top: 15%;
+        padding-top: 15%;
+        .avatar {
+            background: rgba(255, 255, 255, 0) url('../../img/camera.png');
+            height: $avatar-height;
+            width: $avatar-width;
+            background-size: cover;
+            margin: 0 auto;
+        }
+    }
+    .button.button-stable{
+        border-color: #b2b2b2;
+    	background-color: #f8f8f8;
+    	// margin-top: 10%;
+	}
+    .button.button-transparent{
+        background-color: rgba(255,255,255,0);
+        color: $stable;
+    }
+}

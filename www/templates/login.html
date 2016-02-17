@@ -1,20 +1,21 @@
 <ion-view hide-nav-bar="true">
-    <ion-content>
-        <div class="content">
+    <ion-content class="content">
+        <div class="content-wrapper">
             <div class="avatar">
             </div>
             <div>
                 <div class="list list-inset">
                     <label class="item item-input">
-                        <input ng-model="username" type="text" placeholder="Username" />
+                        <input ng-model="vm.username" type="text" placeholder="Username" />
                     </label>
                     <label class="item item-input">
-                        <input ng-model="password" type="password" placeholder="Password" />
+                        <input ng-model="vm.password" type="password" placeholder="Password" />
                     </label>
                 </div>
                 <div class="content padding">
-                    <button class="button button-block button-positive icon ion-log-in" ng-click="login(username, password)">Login</button>
-                    <button class="button button-block button-clear button-balanced" ng-click="register(username, password)">Register</button>
+                    <button class="button button-block button-positive icon-left ion-log-in" ng-click="vm.login()">&nbsp;Login</button>
+                    <a class="button button-block button-transparent icon-left ion-ios-help-empty">&nbsp;Forgot Password</a>
+                    <button class="button button-block button-stable icon-left ion-key" ng-click="vm.register()">&nbsp;Register</button>
                 </div>
             </div>
         </div>
