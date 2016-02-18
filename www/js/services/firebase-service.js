@@ -99,18 +99,17 @@
             if (fbAuth) {
                 var userReference = fb.child("users/" + fbAuth.uid);
                 var syncArray = $firebaseArray(userReference.child("images"));
-                // $scope.images = syncArray;
-                console.log(userReference.child("images").child('image'));
-                console.log(syncArray);
 
                 response.images = syncArray;
                 response.isSuccess = true;
                 response.message = "Fetched all the images";
+                
                 deferred.resolve(response);
             } else {
                 response.images = [];
                 response.isSuccess = false;
                 response.message = "UnAuthorized to get all the images";
+                
                 deferred.reject(response);
             }
             return deferred.promise;

@@ -3,10 +3,18 @@
         <button class="button button-icon icon ion-camera" ng-click="vm.upload()"></button>
     </ion-nav-buttons>
     <ion-content>
-        <div class="row" ng-repeat="image in vm.images">
-            <div class="col col-25">
-                <img ng-src="data:image/jpeg;base64,{{image.image}}"/>
+        <div class="list card" ng-repeat="image in vm.images">
+            <div class="item item-avatar">
+                <img src="img/avatar.jpg">
+                <h2>My work desk</h2>
+                <p>This is just some description</p>
             </div>
+            <div class="item item-image">
+                <img ng-src="data:image/jpeg;base64,{{image.image}}" class="img" ng-click="vm.openModal($index)"/>
+            </div>
+            <a class="item item-icon-left assertive" href="#">
+                <i class="icon ion-aperture"></i> View in Flickr
+            </a>
         </div>
     </ion-content>
 </ion-view>

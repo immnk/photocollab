@@ -13,7 +13,7 @@
 
             FireBaseService.login(vm.username, vm.password).then(function(response){
             	console.log('Logged in successfully...');
-            	$state.go("dashboard");
+            	$state.go("menu.dashboard");
             }, function(fail){
             	console.log(fail);
             });
@@ -22,7 +22,7 @@
         function register(username, password) {
          	FireBaseService.register(vm.username, vm.password).then(function(response){
             	console.log('registered & Logged in successfully...');
-            	$state.go("dashboard");
+            	$state.go("menu.dashboard");
             }, function(fail){
             	console.log('Fail');
             });   
