@@ -7,18 +7,18 @@
 
         var factory = {
             login: loginUser,
-            isAuthorized: isAuth,
-            getAllImages: getAllImages,
-            register: registerUser
             
+            getAllImages: getAllImages,
+            register: registerUser,
+            checkLogin: checkLogin
         };
         init();
 
         return factory;
 
         function init() {
-            factory.fb = new Firebase("https://photocollab.firebaseio.com/");
-            factory.fbAuth = $firebaseAuth(factory.fb);
+            factory.ref = new Firebase("https://photocollab.firebaseio.com/");
+            factory.fbAuth = $firebaseAuth(factory.ref);
         }
 
         function loginUser(username, password) {
@@ -47,16 +47,16 @@
             return deferred.promise;
         }
 
-        function isAuth() {
+        function checkLogin() {
             var deferred = $q.defer();
 
             var response = {};
-            var fbAuth = factory.fb.getAuth();
+            var fbAuth = factory.ref.getAuth();
             if (fbAuth) {
-                response.isAuthorized = true;
+                response.isAuthenticated = true;
                 deferred.resolve(response);
             } else {
-                response.isAuthorized = false;
+                response.isAuthenticated = false;
                 deferred.reject(response);
             }
 
@@ -92,12 +92,12 @@
 
         function getAllImages() {
             var deferred = $q.defer();
-            var fb = factory.fb;
+            var ref = factory.ref;
             var response = {};
 
-            var fbAuth = fb.getAuth();
+            var fbAuth = ref.getAuth();
             if (fbAuth) {
-                var userReference = fb.child("users/" + fbAuth.uid);
+                var userReference = ref.child("users/" + fbAuth.uid);
                 var syncArray = $firebaseArray(userReference.child("images"));
 
                 response.images = syncArray;
